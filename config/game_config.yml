@@ -1,0 +1,24 @@
+players:
+  number_of_players: 2
+  player_names_and_positions: # [name, position] (position should be > 0)
+    - ["Player1", 1]
+    - ["Player2", 1]
+board_size: 10 # (10x10 board)
+snakes:
+  number_of_snakes: 5
+  snake_position: # [head, tail]
+    - [16, 6]
+    - [47, 26]
+    - [49, 11]
+    - [56, 53]
+    - [62, 19]
+ladders:
+  number_of_ladders: 5
+  ladder_position: # [start, end]
+    - [2, 38]
+    - [7, 14]
+    - [8, 31]
+    - [15, 26]
+    - [28, 84]
+number_of_dies: 1
+movement_strategy: SUM # SUM or MIN or MAX
