@@ -18,6 +18,7 @@ class Game:
         self.dice = Dice(config["number_of_dies"], config["movement_strategy"])
         self.print_game_board = config.get("print_game_board", False)
         self.players_held_by_mines = {player.name: 0 for player in self.players}
+        self.manual_dice_rolls = config.get("manual_dice_rolls", False)
 
     def print_board(self):
         for row in range(10, 0, -1):
@@ -81,6 +82,16 @@ class Game:
                     print(f"{player.name} skips this turn")
                     self.players_held_by_mines[player.name] -= 1
                     continue
+                
+                if self.manual_dice_rolls: # playing manually
+                    try:
+                        roll = int(input(f"input the die roll for {player.name}: "))
+                    except ValueError:
+                        print("invalid input, please enter a number...")
+                        continue
+                else:
+                    roll = self.dice.roll() # auto - default
+
                 roll = self.dice.roll()
                 player.move(roll, self.board)
 
