@@ -1,6 +1,6 @@
 players:
   number_of_players: 2
-  player_names_and_positions: # name: position
+  player_names_and_positions: # name: position (position should be > 0)
     Player1: 1
     Player2: 1
 board_size: 10 # (10x10 board)
