@@ -12,6 +12,14 @@ snakes:
     - [49, 11]
     - [56, 53]
     - [62, 19]
+crocodiles_positions: # list of positions
+    - 18
+    - 50
+    - 61
+mines_positions: # list of positions
+    - 23
+    - 52
+    - 83
 ladders:
   number_of_ladders: 5
   ladder_position: # [start, end]

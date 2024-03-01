@@ -1,5 +1,5 @@
 class Board:
-    def __init__(self, size, snakes, ladders, crocodile=None, mine=None):
+    def __init__(self, size, snakes, ladders, crocodiles=[], mines=[]):
         self.size = size
         self.snakes = {}
         for i in range(snakes['number_of_snakes']):
@@ -9,5 +9,5 @@ class Board:
         for i in range(ladders['number_of_ladders']):
             bottom, top = ladders['ladder_position'][i]
             self.ladders[bottom] = top
-        self.crocodile = crocodile
-        self.mine = mine
+        self.crocodiles = crocodiles
+        self.mines = mines
