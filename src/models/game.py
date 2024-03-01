@@ -10,6 +10,7 @@ class Game:
             self.players.append(Player(name, position))
         self.board = Board(config["board_size"], config["snakes"], config["ladders"])
         self.dice = Dice(config["number_of_dies"], config["movement_strategy"])
+        self.print_game_board = config.get("print_game_board", False)
 
     def print_board(self):
         for row in range(10, 0, -1):
@@ -37,21 +38,20 @@ class Game:
                 if player_positions:
                     cell_content.extend(player_positions)
 
-                cell = '/'.join(cell_content) if cell_content else f"{pos:3}"
-                row_items += f"{cell:7}"
+                cell = '/'.join(cell_content) if cell_content else f"{pos:3}" # padding 3
+                row_items += f"{cell:7}" # padding 7 
             print(row_items)
             print("\n")
 
 
     def start(self):
-        # Game loop implementation
         print("Starting game with", len(self.players), "players.")
-        self.print_board()
-        # while True:
-        #     for player in self.players:
-        #         roll = self.roll_dice()
-        #         self.update_player_position(player, roll)
-        #         self.print_board()
-        #         if player.position >= 100:
-        #             print(f"{player.name} wins!")
-        #             return
+        while True:
+            for player in self.players:
+                roll = self.dice.roll()
+                player.move(roll, self.board)
+                if self.print_game_board:
+                    self.print_board()
+                if player.position >= self.board.size ** 2:
+                    print(f"{player.name} wins!")
+                    return

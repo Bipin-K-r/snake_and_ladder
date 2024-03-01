@@ -22,3 +22,4 @@ ladders:
     - [28, 84]
 number_of_dies: 1
 movement_strategy: SUM # SUM or MIN or MAX
+print_game_board: False # True or False
