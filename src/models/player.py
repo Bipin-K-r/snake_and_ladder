@@ -5,5 +5,3 @@ class Player:
 
     def move(self, steps):
         pass
-
-    
