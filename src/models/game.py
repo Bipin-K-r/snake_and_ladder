@@ -43,13 +43,19 @@ class Game:
             print(row_items)
             print("\n")
 
+    def check_for_overlapping(self, current_player):
+        for player in self.players:
+            if player != current_player and player.position == current_player.position:
+                player.position = 1
+                print(f"Overlap! {player.name} is moved back to start (position=1) because {current_player.name} rolled on the same spot")
 
     def start(self):
-        print("Starting game with", len(self.players), "players.")
+        print("Starting game with", len(self.players), "players")
         while True:
             for player in self.players:
                 roll = self.dice.roll()
                 player.move(roll, self.board)
+                self.check_for_overlapping(player)
                 if self.print_game_board:
                     self.print_board()
                 if player.position >= self.board.size ** 2:
