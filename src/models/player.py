@@ -24,6 +24,4 @@ class Player:
             self.position = final_position
 
         else:  # normal roll
-            print(
-                f"{self.name} rolled a {steps} and moved from {initial_position} to {self.position}"
-            )
+            print(f"{self.name} rolled a {steps} and moved from {initial_position} to {self.position}")
