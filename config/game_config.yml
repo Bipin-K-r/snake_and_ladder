@@ -12,14 +12,6 @@ snakes:
     - [49, 11]
     - [56, 53]
     - [62, 19]
-crocodiles_positions: # list of positions
-    - 18
-    - 50
-    - 61
-mines_positions: # list of positions
-    - 23
-    - 52
-    - 83
 ladders:
   number_of_ladders: 5
   ladder_position: # [start, end]
@@ -30,5 +22,13 @@ ladders:
     - [28, 84]
 number_of_dies: 1
 movement_strategy: SUM # SUM or MIN or MAX
+crocodiles_positions: # list of positions
+    - 18
+    - 50
+    - 61
+mines_positions: # list of positions
+    - 23
+    - 52
+    - 83
 print_game_board: False # for printing the board after roll
 manual_dice_rolls: False # for playing manually
