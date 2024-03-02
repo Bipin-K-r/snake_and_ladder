@@ -1,7 +1,10 @@
 # snake_and_ladder
 snake and ladder game
 
-## symlink for running tests
+## for running tests
+    I have added run_test.sh, just need to run that for running test,
+    if test folder has a symlink of models, else first run the below command,
+    which will create the symlink and then run the bash file for running tests
     - ln -s ../src/models models
 
 ## Game Config
@@ -31,4 +34,5 @@ snake and ladder game
 
 ## for running
     - one needs to run the main.py
-    - have created a run.sh which will run that
+    - have created a run.sh which will run that, I have added python3 in the command in case
+        python corresponds to python2
