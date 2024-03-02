@@ -82,15 +82,25 @@ class Game:
                     print(f"{player.name} skips this turn")
                     self.players_held_by_mines[player.name] -= 1
                     continue
-                
-                if self.manual_dice_rolls: # playing manually
+
+                dice_count = self.dice.number
+
+                get_dice_count = input("would you like to change the number of dies for this turn? (y/n): ").lower()
+                if get_dice_count == "y":
+                    try:
+                        new_dice_count = int(input("enter the number of dies(int): "))
+                        self.dice.number = new_dice_count
+                    except ValueError:
+                        print("invalid input, going ahead with die count in config...")
+
+                if self.manual_dice_rolls:
                     try:
                         roll = int(input(f"input the die roll for {player.name}: "))
                     except ValueError:
                         print("invalid input, please enter a number...")
                         continue
                 else:
-                    roll = self.dice.roll() # auto - default
+                    roll = self.dice.roll()  # auto - default
 
                 roll = self.dice.roll()
                 player.move(roll, self.board)
@@ -99,6 +109,9 @@ class Game:
                 self.crocodiles_effect(player)
                 self.mine_effect(player)
                 self.check_for_overlapping(player)
+
+                self.dice.number = dice_count
+                print(f"number of dice reset to {self.dice.number} from config")
 
                 if self.print_game_board:
                     self.print_board()
